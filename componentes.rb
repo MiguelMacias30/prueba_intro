@@ -64,3 +64,13 @@ def foot
 
     return foot
 end
+
+
+def build_page
+  url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=7zTHP1OsvMBYmLxmUO99BDUqRwqgGopBSYkEWaqt'
+  index = head() + content(url) + foot()
+
+  return index
+end
+
+File.write('./index.html', build_page())
