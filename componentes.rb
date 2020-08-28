@@ -19,3 +19,35 @@ def head
                     '<p class = 'text-center'style='color:white;'>un mars rover es un vehiculo motorizado que se desplaza por la superficie de marte a su llegada.estos vehiculos tienen varias ventajas respecto a los modulos de aterrizaje estacionarios:son capaces de examinar areas de territorio mas amplio, pueden ser dirigidos a zonas con interes cientifico, pueden situarse en posiciones donde reciben luz solar durante los meses de invierno y son capaces de obtener conocimiento del entorno para ser controlados de forma remota</p>"
     return head
 end
+
+
+def content(api)
+  data = get_data(api)
+    mars = ""
+    '<div class= "container">'
+    mars = '<div class="row p-5" style= "color:black">'
+    #data.each do |imagen|
+    #imagen[1].each do |fotos|
+    #fotos.each do |k, v|
+      #puts v if k == "img_src"
+      #end
+        data.each do |imagen|
+        imagen[1].each do |fotos|
+        mars += "
+        <div class='col-md-4'>
+            <div class='card' style='width: 18rem;'>
+                <img src='#{fotos['img_src']}' class='card-img-top'>
+                <div class='card-body'>
+                <h5 class='card-title'>'NASA'</h5>
+                <p  class='card-text'>'#{fotos['earth_date']}'</p>
+             </div>
+        </div>
+    </div>
+    "
+      end
+      '</div>'
+      mars += '</div>'
+
+    end
+    return mars
+end
